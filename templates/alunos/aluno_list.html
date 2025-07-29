@@ -1,0 +1,37 @@
+<!-- templates/alunos/aluno_list.html -->
+{% extends 'base.html' %}
+
+{% block title %}Lista de Alunos{% endblock %}
+
+{% block content %}
+    <h1>Lista de Alunos</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome Completo</th>
+                <th>Data de Nascimento</th>
+                <th>Série Pretendida</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for aluno in alunos %}
+            <tr>
+                <td>{{ aluno.nome_completo }}</td>
+                <td>{{ aluno.data_nascimento|date:"d/m/Y" }}</td>
+                <td>{{ aluno.serie_pretendida }}</td>
+                <td>
+                    <a href="{% url 'aluno_detail' aluno.pk %}">Ver</a> |
+                    <a href="{% url 'aluno_update' aluno.pk %}">Editar</a> |
+                    <a href="{% url 'aluno_delete' aluno.pk %}">Deletar</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">Nenhum aluno cadastrado ainda.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'aluno_create' %}">Cadastrar Novo Aluno</a>
+{% endblock %}

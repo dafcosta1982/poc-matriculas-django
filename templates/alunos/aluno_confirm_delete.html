@@ -1,0 +1,14 @@
+<!-- templates/alunos/aluno_confirm_delete.html -->
+{% extends 'base.html' %}
+
+{% block title %}Confirmar Exclusão{% endblock %}
+
+{% block content %}
+    <h1>Confirmar Exclusão</h1>
+    <p>Você tem certeza que deseja excluir o aluno "{{ aluno.nome_completo }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmar Exclusão</button>
+    </form>
+    <a href="{% url 'aluno_list' %}" class="back-link">Cancelar</a>
+{% endblock %}

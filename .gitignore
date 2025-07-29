@@ -1,0 +1,23 @@
+# .gitignore
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+*egg-info/
+.pytest_cache/
+.DS_Store
+
+# Django
+db.sqlite3
+/media/
+/static/
+/staticfiles/
+/.env # ESSENCIAL: Evita que suas credenciais locais sejam enviadas ao GitHub
+/local_settings.py
+
+# Render
+.render/
