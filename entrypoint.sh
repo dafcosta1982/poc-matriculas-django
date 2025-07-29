@@ -22,6 +22,6 @@ python manage.py migrate 2>&1
 
 echo "Iniciando Gunicorn..."
 # Redireciona stderr para stdout
-gunicorn core.wsgi:application --bind 0.0.0.0:$PORT 2>&1
+/opt/render/project/src/.venv/bin/gunicorn core.wsgi:application --bind 0.0.0.0:$PORT
 
 echo "--- entrypoint.sh finalizado com sucesso (esta linha não deve aparecer se Gunicorn iniciar corretamente) ---"
